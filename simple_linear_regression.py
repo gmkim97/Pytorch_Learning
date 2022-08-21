@@ -14,11 +14,11 @@ b = torch.zeros(1, requires_grad=True)
 optimizer = torch.optim.SGD([W, b], lr=0.01)
 
 ## Total number of epoch
-num_epoch = 2000
+total_ep = 2000
 
 
 # Learning
-for epoch in range(num_epoch+1):
+for ep in range(total_ep+1):
 
     ## Hypothesis = Linear Regression
     H = W * x_train + b
@@ -33,7 +33,11 @@ for epoch in range(num_epoch+1):
     optimizer.step()
 
     ## Result
-    if epoch % 10 == 0:
-        print('Epoch {:4d}/{} Weight: {:.3f}, bias: {:.3f} Cost: {:.6f}'.format(epoch, num_epoch, W.item(), b.item(), cost.item()))
+    if ep % 10 == 0:
+        print('Epoch {:4d}/{} Weight: {:.3f}, bias: {:.3f} Cost: {:.6f}'.format(ep, total_ep, W.item(), b.item(), cost.item()))
         ### 문자열 포맷팅 (String Formatting) : 여러 값들을 입력 받아 String 안에 순서에 맞게 넣어준다. {}와 .format 함수를 같이 쓴다.
         ### item() 함수 : 딕셔너리 (Dictionary)안에 있는 원소 값을 불러옴.
+
+
+# Output
+# Epoch 2000/2000 Weight: 1.997, bias: 0.006 Cost: 0.000005

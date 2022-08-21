@@ -25,8 +25,7 @@ for ep in range(total_ep+1):
     H = X.matmul(W) + b
 
     ## Cost function
-    mse_loss = nn.MSELoss()
-    cost = mse_loss(y, H)
+    cost = nn.MSELoss()(y, H)
 
     ## Optimization
     optimizer.zero_grad()
